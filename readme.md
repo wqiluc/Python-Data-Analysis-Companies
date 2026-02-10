@@ -37,6 +37,7 @@ Data_Analysis_Python/
 │
 ├── projeto/
 │   ├── data_analysis.ipynb<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original.svg" width="18"/>
+│   ├── apoio.py<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="18"/>
 │   ├── cores.py<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="18"/>
 │   └── organizations-10000.csv(database)<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" width="18"/>
 │
