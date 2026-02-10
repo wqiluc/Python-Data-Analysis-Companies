@@ -183,20 +183,57 @@ Data_Analysis_Python/
 <img src="https://img.shields.io/badge/-Pyperclip%20-32CD32?style=flat-square&logo=python&logoColor=white" height="28"/></h2>
 
 ```python
-# 💻 Passo 9 — Manipular notebook 👇
+# 🤖 Passo 9 — Automação 👇
+  # 👉 copiar texto com pyperclip
+  # 👉 simular ação com pyautogui
   # escreva aqui: 👇
 
-  df = base_dados_updated_traduzida
+url_gmail = "https://mail.google.com/mail/u/0/?pli=1#inbox"
 
-  df["Cor Ano"] = df["Ano de Inauguração da Empresa"].apply(lambda x: "Red" if (x < 1999) else "Blue")
+system.system("open -a 'Google Chrome' " + url_gmail)
+sleep(3)
 
-  df["Cor QTD Funcionários"] = df["QTD. Funcionários da Empresa"].apply(lambda x: "Red" if (x < 5000) else "Blue")
+auto.moveTo(x=173, y=227)
+sleep(3)
+for tab in range(14):
+ tab = auto.press("tab")
+auto.press("enter")
+sleep(4)
 
-  for indice_coluna, coluna in enumerate(["Ano de Inauguração da Empresa","QTD. Funcionários da Empresa"]):
-      fig = px.histogram(
-          df,
-          x=coluna,
-          color="Cor Ano" if (coluna == "Ano de Inauguração da Empresa") else "Cor QTD Funcionários",
-          color_discrete_map={"Red": "red", "Blue": "blue"},
-          title=f"{indice_coluna+1} - Distribuição de {coluna}")
-      fig.show()
+destinatário = ("aleatorio1237@gmail.com")
+titulo = ("Assunto: Relatório de Análise de Dados Organizacionais")
+
+mensagem = (f"""
+        
+Prezados(as),
+            
+Encaminho a seguir um resumo da análise exploratória realizada sobre nossa base de dados organizacionais, com foco em padrões, tendências e oportunidades estratégicas identificadas:
+Durante o estudo, foram avaliadas informações referentes a empresas, incluindo país de atuação, ano de fundação, quantidade de funcionários e descrições institucionais. A análise revelou insights importantes, tais como:
+Uma significativa parcela das empresas analisadas foi fundada antes de 1999, representando uma base consolidada e madura no mercado;
+            
+Observou-se que diversas organizações possuem menos de 5.000 funcionários, o que sugere perfis mais enxutos e potencial para processos otimizados;
+            
+Foram identificados padrões de distribuição de funcionários e de anos de fundação que permitem segmentar empresas por maturidade e porte, auxiliando na definição de estratégias comerciais e de relacionamento corporativo;
+As visualizações interativas construídas facilitam a interpretação desses dados e permitem explorar cenários específicos por país, setor ou porte da empresa, apoiando decisões estratégicas mais assertivas;
+            
+A análise também permitiu destacar oportunidades de automação de processos internos e identificação de áreas que demandam atenção para crescimento sustentável e escalabilidade.
+Em resumo, os dados analisados fornecem uma visão consolidada do perfil empresarial, permitindo à equipe de gestão tomar decisões mais informadas, direcionar esforços de forma eficiente e identificar oportunidades de crescimento e melhoria contínua.
+            
+Caso desejem, posso fornecer visualizações detalhadas e interativas para cada métrica analisada, facilitando a exploração dos dados de forma intuitiva e estratégica.
+Atenciosamente,
+            
+Lucas Paguetti Pereira🇧🇷""")
+
+# Passo 1: Colocar destinatário na área de transferência e colar:
+clip.copy(destinatário)
+sleep(5)
+auto.press("tab") # Vai para o campo do assunto
+
+# Passo 2: Colocar título na área de transferência e colar:
+clip.copy(titulo)
+sleep(5)
+auto.press("tab")  # Vai para o campo da mensagem:
+
+# Passo 3: Colocar mensagem na área de transferência e colar:
+clip.copy(mensagem)
+sleep(3)
