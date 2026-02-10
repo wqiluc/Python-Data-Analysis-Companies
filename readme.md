@@ -184,56 +184,74 @@ Data_Analysis_Python/
 
 ```python
 # 🤖 Passo 9 — Automação 👇
-  # 👉 copiar texto com pyperclip
-  # 👉 simular ação com pyautogui
-  # escreva aqui: 👇
+# 👉 copiar texto com pyperclip
+# 👉 simular ação com pyautogui
 
 url_gmail = "https://mail.google.com/mail/u/0/?pli=1#inbox"
 
+# abre o gmail no chrome
 system.system("open -a 'Google Chrome' " + url_gmail)
 sleep(3)
 
+# move o mouse até o botão de escrever email
 auto.moveTo(x=173, y=227)
 sleep(3)
-for tab in range(14):
- tab = auto.press("tab")
+
+# navega com TAB até o botão correto
+for loop in range(14):
+    auto.press("tab")
+
+# abre nova mensagem
 auto.press("enter")
 sleep(4)
 
-destinatário = ("aleatorio1237@gmail.com")
-titulo = ("Assunto: Relatório de Análise de Dados Organizacionais")
+# dados do email
+img1 = r"https://github.com/wqiluc/Python-Data-Analysis-Companies/blob/main/img/1-Inauguracao.jpeg"
+img2 = r"https://github.com/wqiluc/Python-Data-Analysis-Companies/blob/main/img/2-QTDFuncionarios.jpeg"
+
+destinatario = r"aleatorio1237@gmail.com"
+titulo = r"Relatório de Análise de Dados Organizacionais"
 
 mensagem = (f"""
-        
 Prezados(as),
-            
+
 Encaminho a seguir um resumo da análise exploratória realizada sobre nossa base de dados organizacionais, com foco em padrões, tendências e oportunidades estratégicas identificadas:
-Durante o estudo, foram avaliadas informações referentes a empresas, incluindo país de atuação, ano de fundação, quantidade de funcionários e descrições institucionais. A análise revelou insights importantes, tais como:
+
+Durante o estudo, foram avaliadas informações referentes a empresas, incluindo país de atuação, ano de fundação, quantidade de funcionários e descrições institucionais.
+
+Principais insights:
 Uma significativa parcela das empresas analisadas foi fundada antes de 1999, representando uma base consolidada e madura no mercado;
-            
-Observou-se que diversas organizações possuem menos de 5.000 funcionários, o que sugere perfis mais enxutos e potencial para processos otimizados;
-            
-Foram identificados padrões de distribuição de funcionários e de anos de fundação que permitem segmentar empresas por maturidade e porte, auxiliando na definição de estratégias comerciais e de relacionamento corporativo;
-As visualizações interativas construídas facilitam a interpretação desses dados e permitem explorar cenários específicos por país, setor ou porte da empresa, apoiando decisões estratégicas mais assertivas;
-            
-A análise também permitiu destacar oportunidades de automação de processos internos e identificação de áreas que demandam atenção para crescimento sustentável e escalabilidade.
-Em resumo, os dados analisados fornecem uma visão consolidada do perfil empresarial, permitindo à equipe de gestão tomar decisões mais informadas, direcionar esforços de forma eficiente e identificar oportunidades de crescimento e melhoria contínua.
-            
-Caso desejem, posso fornecer visualizações detalhadas e interativas para cada métrica analisada, facilitando a exploração dos dados de forma intuitiva e estratégica.
+Observou-se que diversas organizações possuem menos de 5.000 funcionários, sugerindo estruturas mais enxutas e potencial para processos otimizados;
+Foram identificados padrões que permitem segmentar empresas por maturidade e porte, auxiliando estratégias comerciais e decisões corporativas.
+
+Visualizações geradas📊:
+Gráfico Ano de Inauguração: {img1}
+Gráfico Quantidade de Funcionários: {img2}
+
+As visualizações facilitam a interpretação dos dados e apoiam decisões estratégicas mais assertivas.
+Também foram identificadas oportunidades de automação e melhorias para crescimento sustentável e escalabilidade.
+
+Em resumo, os dados fornecem uma visão consolidada do perfil empresarial, permitindo decisões mais informadas e direcionamento eficiente de esforços.
+
+Caso desejem, posso fornecer análises adicionais e visualizações interativas complementares.
+
 Atenciosamente,
-            
-Lucas Paguetti Pereira🇧🇷""")
 
-# Passo 1: Colocar destinatário na área de transferência e colar:
-clip.copy(destinatário)
-sleep(5)
-auto.press("tab") # Vai para o campo do assunto
+Lucas Paguetti Pereira 🇧🇷 """)
 
-# Passo 2: Colocar título na área de transferência e colar:
+# Passo 1: copiar destinatário e colar
+clip.copy(destinatario)
+sleep(1)
+auto.hotkey("command","v")  # cola no campo destinatário
+auto.press("tab")           # vai para o assunto
+
+# Passo 2: copiar título e colar
 clip.copy(titulo)
-sleep(5)
-auto.press("tab")  # Vai para o campo da mensagem:
+sleep(1)
+auto.hotkey("command","v")  # cola no campo assunto
+auto.press("tab")           # vai para a mensagem
 
-# Passo 3: Colocar mensagem na área de transferência e colar:
+# Passo 3: copiar mensagem e colar
 clip.copy(mensagem)
-sleep(3)
+sleep(1)
+auto.hotkey("command","v")  # cola o corpo do email
