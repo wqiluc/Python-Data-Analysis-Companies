@@ -32,6 +32,8 @@ Data_Analysis_Python/
 │
 ├── img/
 │   └── dados.jpeg<img src="https://cdn-icons-png.flaticon.com/512/136/136524.png" width="18"/>
+│   └── 1-Inauguracao.jpeg<img src="https://cdn-icons-png.flaticon.com/512/136/136524.png" width="18"/>
+│   └── 2-QTDFuncionarios.jpeg<img src="https://cdn-icons-png.flaticon.com/512/136/136524.png" width="18"/>
 │
 ├── projeto/
 │   ├── data_analysis.ipynb<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original.svg" width="18"/>
